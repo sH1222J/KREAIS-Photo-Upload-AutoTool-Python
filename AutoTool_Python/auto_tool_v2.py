@@ -52,11 +52,11 @@ def set_button_Click(path):
 def image_button_click(image):
     while True: # 버튼을 찾고 누를 떄 까지 반복
         try:
-            time.sleep(1.3) # 알아서 잘맞추기
+            time.sleep(1) # 알아서 잘맞추기
             btnImage = py.locateOnScreen(image)  # 화면에서 image를 감지       
             point = py.center(btnImage) # 찾은 이미지의 좌표의 중앙 지점 감지
             print(image + ' ' + str(point)) # 콘솔창에 image 경로, 찾은 좌표를 출력
-            time.sleep(1.3) # 알아서 잘맞추기
+            time.sleep(1) # 알아서 잘맞추기
             py.click(point) # 구한 좌표를 클릭
             break # 반복문 종료
         except: # 버튼을 못찾을 경우
@@ -123,12 +123,18 @@ for i in tqdm(range(0, len(imageList), 2)):
     print('Current image: ' + imageList[i] + ', ' + imageList[i+1])
 
     image_button_click(btnImagePath + 'picture.png')
+    time.sleep(0.2) # 딜레이 추가
+    py.press('Enter')  # 최초 사진업로드시 나오는 팝업을 대비해 작성함
     choice_images(imageList[i], imageList[i+1], dirPath)  
     image_button_click(btnImagePath + 'register.png')
     
     py.hotkey('ctrl', 'v')
+    time.sleep(0.2) # 딜레이 추가
     py.press('Enter')
+    time.sleep(0.2)
     py.press('Enter')
+    time.sleep(0.2)
+
 
     image_button_click(btnImagePath + 'close.png')
     image_button_click(btnImagePath + 'next.png')
