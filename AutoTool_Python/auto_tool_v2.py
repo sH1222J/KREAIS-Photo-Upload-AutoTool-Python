@@ -131,13 +131,14 @@ for i in tqdm(range(0, len(imageList), 2)):
     py.hotkey('ctrl', 'v')
     time.sleep(0.1) # 딜레이 추가
     py.press('Enter')
-    time.sleep(0.1)
+    time.sleep(0.1) # 딜레이 추가
     py.press('Enter')
-    time.sleep(0.1)
-
+    time.sleep(0.1) # 딜레이 추가
 
     image_button_click(btnImagePath + 'close.png')
+    time.sleep(0.1) # 딜레이 추가
     image_button_click(btnImagePath + 'next.png')
+    time.sleep(0.1) # 딜레이 추가
 
     root = tk.Tk()
 
