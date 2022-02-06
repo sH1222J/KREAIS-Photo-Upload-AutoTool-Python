@@ -127,18 +127,18 @@ for i in tqdm(range(0, len(imageList), 2)):
     py.press('Enter')  # 최초 사진업로드시 나오는 팝업을 대비해 작성함
     choice_images(imageList[i], imageList[i+1], dirPath)  
     image_button_click(btnImagePath + 'register.png')
-    
-    py.hotkey('ctrl', 'v')
     time.sleep(0.1) # 딜레이 추가
-    py.press('Enter')
+    py.hotkey('ctrl', 'v') # 선택한 파일 복붙
     time.sleep(0.1) # 딜레이 추가
-    py.press('Enter')
+    py.press('Enter') # 열기
     time.sleep(0.1) # 딜레이 추가
+    py.press('Enter') # 업로드 완료창 확인
+    time.sleep(0.3) # 딜레이 추가
 
     image_button_click(btnImagePath + 'close.png')
-    time.sleep(0.1) # 딜레이 추가
+    time.sleep(0.2) # 딜레이 추가
     image_button_click(btnImagePath + 'next.png')
-    time.sleep(0.1) # 딜레이 추가
+    time.sleep(0.2) # 딜레이 추가
 
     root = tk.Tk()
 
